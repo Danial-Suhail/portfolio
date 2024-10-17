@@ -18,49 +18,49 @@ export default function Page() {
     <div style={{ zoom: "160%" }}>
     <main className="flex flex-col min-h-[100dvh] space-y-10">
     <section id="top" className="pt-20">
-  <div className="w-full max-w-2xl space-y-8">
-    <div className="flex flex-col md:flex-row justify-between items-center gap-20 ">
-      <div className="flex flex-col flex-1 space-y-4 text-center md:text-left"> 
-      <div className="relative">
-      {/* Pink outline layer */}
-      <BlurFade delay={BLUR_FADE_DELAY}>
-      <span className="absolute text-pink-500 -translate-x--5 -translate-y-2 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap hidden sm:block">
-        DANIAL SUHAIL
-      </span>
-      </BlurFade>
-      
-      {/* White text layer */}
-      <BlurFadeText
-        delay={BLUR_FADE_DELAY}
-        className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap"
-        yOffset={8}
-        text={`DANIAL SUHAIL`}
-      />
-    </div>
-        
+  <div className="w-full max-w-2xl mx-auto space-y-8"> {/* Centering the content */}
+    <div className="flex flex-col md:flex-row justify-center items-center gap-20"> {/* Centering Avatar and Title/Subtitles */}
+      <div className="flex flex-col flex-1 space-y-4 text-left"> {/* Change text alignment to left */}
+        <div className="relative">
+          {/* Pink outline layer */}
+          <BlurFade delay={BLUR_FADE_DELAY}>
+            <span className="absolute text-pink-500 -translate-x--5 -translate-y-2 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap hidden sm:block">
+              DANIAL SUHAIL
+            </span>
+          </BlurFade>
+
+          {/* White text layer */}
+          <BlurFadeText
+            delay={BLUR_FADE_DELAY}
+            className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap"
+            yOffset={8}
+            text={`DANIAL SUHAIL`}
+          />
+        </div>
+
         <BlurFadeText
-          className="tracking-tighter sm:text-md md:text-lg xl:max-w-[400px]  "
+          className="tracking-tighter sm:text-md md:text-lg xl:max-w-[400px]"
           delay={BLUR_FADE_DELAY}
           text={DATA.description}
         />
       </div>
-      
-<BlurFade delay={BLUR_FADE_DELAY}>
-  <div className="flex items-center justify-center relative" style={{ width: '220px', height: '220px' }}>
-    {/* Pink outline with y-offset, no blur */}
-    <div className="absolute inset-0 rounded-full border-4 border-pink-500 z-0 translate-y-1"></div>
 
-    {/* Avatar with image */}
-    <Avatar className="relative z-10 border rounded-full h-full w-full">
-      <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="h-full w-full object-cover" />
-      <AvatarFallback className="h-full w-full">{DATA.initials}</AvatarFallback>
-    </Avatar>
-  </div>
-</BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY}>
+        <div className="flex items-center justify-center relative" style={{ width: '220px', height: '220px' }}>
+          {/* Pink outline with y-offset, no blur */}
+          <div className="absolute inset-0 rounded-full border-4 border-pink-500 z-0 translate-y-1"></div>
 
+          {/* Avatar with image */}
+          <Avatar className="relative z-10 border rounded-full h-full w-full">
+            <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="h-full w-full object-cover" />
+            <AvatarFallback className="h-full w-full">{DATA.initials}</AvatarFallback>
+          </Avatar>
+        </div>
+      </BlurFade>
     </div>
   </div>
 </section>
+
 
 <section id="about">
 

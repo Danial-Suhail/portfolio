@@ -5,6 +5,7 @@ import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import localfont from "next/font/local"
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -12,6 +13,14 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 
+const Juliette = localfont({
+    src: [{
+      path: "../../public/fonts/Juliette.otf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-Juliette"
+});
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
@@ -58,7 +67,8 @@ export default function RootLayout({
       <body
                 className={cn(
                   "min-h-screen bg-background font-sans antialiased px-6 sm:px-12 md:px-24", // Adjusted padding
-                  fontSans.variable
+                  fontSans.variable,
+                  Juliette.variable
                 )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
