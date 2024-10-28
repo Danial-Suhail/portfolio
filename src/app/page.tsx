@@ -1,15 +1,12 @@
-import CodeSymbolAnimation from "@/components/CodeSymbolAnimation";
-import { HackathonCard } from "@/components/hackathon-card";
-import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
+import BlurFade from "@/components/blureffects/blur-fade";
+import BlurFadeText from "@/components/blureffects/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 import Link from "next/link";
-import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -18,48 +15,55 @@ export default function Page() {
     <div style={{ zoom: "160%" }}>
     <main className="flex flex-col min-h-[100dvh] space-y-10">
     <section id="top" className="pt-20">
-  <div className="w-full max-w-2xl mx-auto space-y-8"> {/* Centering the content */}
-    <div className="flex flex-col md:flex-row justify-center items-center gap-20"> {/* Centering Avatar and Title/Subtitles */}
-      <div className="flex flex-col flex-1 space-y-4 text-left"> {/* Change text alignment to left */}
-        <div className="relative">
-          {/* Pink outline layer */}
-          <BlurFade delay={BLUR_FADE_DELAY}>
-            <span className="absolute text-pink-500 -translate-x--5 -translate-y-2 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap hidden sm:block">
-              DANIAL SUHAIL
-            </span>
-          </BlurFade>
+          <div className="w-full mx-auto flex flex-col items-center space-y-8">
+            {/* Grouped Text and Image with Image on Right */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+              {/* Text content */}
+              <div className="relative text-center md:text-left space-y-2">
+                <div className="relative">
+                  {/* Pink outline layer */}
+                  <BlurFade delay={BLUR_FADE_DELAY}>
+                    <span className="absolute text-pink-500 -translate-y-2 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap hidden sm:block">
+                    DANIAL SUHAIL
+                    </span>
+                  </BlurFade>
 
-          {/* White text layer */}
-          <BlurFadeText
-            delay={BLUR_FADE_DELAY}
-            className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap"
-            yOffset={8}
-            text={`DANIAL SUHAIL`}
-          />
-        </div>
+                  {/* White text layer */}
+                  <BlurFadeText
+                    delay={BLUR_FADE_DELAY}
+                    className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap mr-5"
+                    yOffset={8}
+                    text="DANIAL SUHAIL"
+                  />
+                </div>
 
-        <BlurFadeText
-          className="tracking-tighter sm:text-md md:text-lg xl:max-w-[400px]"
-          delay={BLUR_FADE_DELAY}
-          text={DATA.description}
-        />
-      </div>
+                {/* Subtitle */}
+                <BlurFadeText
+                  className="pl-1 text-left tracking-tighter sm:text-sm md:text-base xl:max-w-[400px]"
+                  delay={BLUR_FADE_DELAY}
+                  text= {DATA.description}
+                />
+                {/* <BlurFadeText
+                  className="tracking-tighter sm:text-sm md:text-md xl:max-w-[200px]"
+                  delay={BLUR_FADE_DELAY}
+                  text= "Waterloo, Ontario"
+                /> */}
 
-      <BlurFade delay={BLUR_FADE_DELAY}>
-        <div className="flex items-center justify-center relative" style={{ width: '220px', height: '220px' }}>
-          {/* Pink outline with y-offset, no blur */}
-          <div className="absolute inset-0 rounded-full border-4 border-pink-500 z-0 translate-y-1"></div>
+              </div>
 
-          {/* Avatar with image */}
-          <Avatar className="relative z-10 border rounded-full h-full w-full">
-            <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="h-full w-full object-cover" />
-            <AvatarFallback className="h-full w-full">{DATA.initials}</AvatarFallback>
-          </Avatar>
-        </div>
-      </BlurFade>
-    </div>
+              {/* Avatar with pink border */}
+<BlurFade delay={BLUR_FADE_DELAY}>
+  <div className="relative flex items-center justify-center w-[13.75rem] h-[13.75rem]">
+    <div className="absolute inset-0 rounded-full border-4 border-pink-500 z-0 translate-y-1"></div>
+    <Avatar className="relative z-10 border rounded-full h-full w-full">
+      <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="h-full w-full object-cover" />
+      <AvatarFallback className="h-full w-full">{DATA.initials}</AvatarFallback>
+    </Avatar>
   </div>
-</section>
+</BlurFade>
+            </div>
+          </div>
+        </section>
 
 
 <section id="about">
@@ -68,19 +72,23 @@ export default function Page() {
           <h2 className="text-xl font-bold pb-2">About Me</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-        <Markdown className="prose max-w-full text-pretty font-sans text-sm text-gray-800 dark:text-gray-200">
-    {DATA.summary}
-  </Markdown>
+        <div className="prose max-w-full text-pretty text-sm text-gray-800 dark:text-gray-200">
+            Hey there! I'm Danial, currently studying <a 
+  href="https://uwaterloo.ca/future-students/programs/computer-engineering" 
+  className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
+>
+  Computer Engineering 
+</a> at the University of Waterloo. I'm passionate about bringing ideas to life through building websites, competitive typing, and sharpening my skills in photo/video editing.
+        </div>
         </BlurFade>
       </section>
-      
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
             <h2 className="text-xl font-bold">Work Experience</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
-            <BlurFade
+            <BlurFade 
               key={work.company}
               delay={BLUR_FADE_DELAY * 6 + id * 0.05}
             >
@@ -89,7 +97,10 @@ export default function Page() {
                 logoUrl={work.logoUrl}
                 altText={work.company}
                 title={work.title}
-                subtitle={work.company}
+                subtitle={    
+                    // <span className="text-[0.6rem] sm:text-sm md:text-lg lg:text-lg">
+                      work.company    
+                }
                 href={work.href}
                 badges={work.badges}
                 period={`${work.start} - ${work.end ?? "Present"}`}
@@ -124,12 +135,10 @@ export default function Page() {
               <div className="space-y-2">
               
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Check out my latest work
+                Explore My Recent Projects
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve worked on a variety of projects, from simple
-                  websites to complex web applications. Here are a few of my
-                  favorites.
+                  I&apos;ve developed a range of projects, from sleek websites to sophisticated web applications. Here are a few highlights.
                 </p>
               </div>
             </div>
@@ -161,28 +170,30 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Get in Touch
+              Keep in Touch
               </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-          Want to chat? Shoot me a message at{" "}
+              <p className=" mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Interested in connecting? Drop me a message at{" "}
           <a
             href="mailto:danialsuhailcs@gmail.com"
-            className="text-blue-500 underline hover:text-blue-700"
+            className=" text-blue-500 underline hover:text-blue-700"
           >
             danialsuhailcs@gmail.com
           </a>{" "}
-          and I&apos;ll respond whenever I can.
+          and I&apos;ll get back to you soon.
         </p>
             </div>
           </BlurFade>
         </div>
       </section>
     </main>
+    <BlurFade delay={BLUR_FADE_DELAY * 18}>
     <div className="border-t border-gray-300 mt-4 pt-6 pb-6 text-center">
         <p className="text-xs">
           made by <span className="font-juliette">Danial Suhail</span>
         </p>
       </div>
+      </BlurFade>
     </div>
   );
 }

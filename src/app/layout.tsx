@@ -21,6 +21,17 @@ const Juliette = localfont({
   ],
   variable: "--font-Juliette"
 });
+
+const SketchetikFillLight = localfont({
+  src: [{
+    path: "../../public/fonts/SketchetikFillLight.otf",
+    weight: "700",
+  },
+],
+variable: "--font-SketchetikFillLight"
+});
+
+
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
@@ -68,7 +79,8 @@ export default function RootLayout({
                 className={cn(
                   "min-h-screen bg-background font-sans antialiased px-6 sm:px-12 md:px-24", // Adjusted padding
                   fontSans.variable,
-                  Juliette.variable
+                  Juliette.variable,
+                  SketchetikFillLight.variable
                 )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">

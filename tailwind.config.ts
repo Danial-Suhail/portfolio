@@ -22,6 +22,10 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         juliette: ["var(--font-Juliette)", "sans-serif"],
+        sketchetikFillLight: ["var(--font-SketchetikFillLight)", "sans-serif"],
+      },
+      boxShadow: {
+        'glow': '0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.4)',
       },
       colors: {
         border: "hsl(var(--border))",
