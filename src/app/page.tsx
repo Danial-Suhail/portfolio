@@ -73,12 +73,12 @@ export default function Page() {
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
         <div className="prose max-w-full text-pretty text-sm text-gray-800 dark:text-gray-200">
-            Hey there! I'm Danial, currently studying <a 
+            Hey there! I&apos;m Danial, currently studying <a 
   href="https://uwaterloo.ca/future-students/programs/computer-engineering" 
   className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
 >
   Computer Engineering 
-</a> at the University of Waterloo. I'm passionate about bringing ideas to life through building websites, competitive typing, and sharpening my skills in photo/video editing.
+</a> at the University of Waterloo. I&apos;m passionate about bringing ideas to life through building websites, competitive typing, and sharpening my skills in photo/video editing.
         </div>
         </BlurFade>
       </section>
