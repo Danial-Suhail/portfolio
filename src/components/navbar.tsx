@@ -42,7 +42,9 @@ export default function Navbar() {
               ))}
             <Separator orientation="vertical" className="h-full" />
             <ModeToggle />
-            <Button size="sm">Resume</Button>
+            <a href="/Danial_Suhail_Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <Button size="sm">Resume</Button>
+            </a>
           </div>
         </div>
       </div>

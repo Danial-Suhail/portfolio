@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 // import { div } from "framer-motion/client";
 import Link from "next/link";
+import Image from "next/image";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -53,12 +54,14 @@ export default function Page() {
 
               {/* Avatar with pink border */}
 <BlurFade delay={BLUR_FADE_DELAY}>
-  <div className="relative flex items-center justify-center w-[13.75rem] h-[13.75rem]">
+  <div className="relative flex items-center justify-center  w-[13.75rem] h-[13.75rem]">
     <div className="absolute inset-0 rounded-full border-4 border-pink-500 z-0 translate-y-1"></div>
-    <Avatar className="relative z-10 border rounded-full h-full w-full">
-      <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="h-full w-full object-cover" />
-      <AvatarFallback className="h-full w-full">{DATA.initials}</AvatarFallback>
-    </Avatar>
+    <Image
+          src={DATA.avatarUrl}
+          alt={DATA.name}
+          fill
+          className="rounded-full object-cover border border-white dark:border-gray-800 bg-muted"
+        />
   </div>
 </BlurFade>
             </div>
@@ -113,7 +116,7 @@ export default function Page() {
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
         <BlurFade delay={BLUR_FADE_DELAY * 9}>
-      <h2 className="text-xl font-bold">Skills</h2>
+      <h2 className="text-xl font-bold">Skills</h2><br></br>
     </BlurFade>
     <div className="flex flex-wrap justify-center gap-4">
       {DATA.skills.map((skill, id) => (

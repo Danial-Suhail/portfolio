@@ -162,7 +162,7 @@ export const DATA = {
       location: "Remote",
       title: "Machine Learning Engineer",
       logoUrl: "/images/wat_ai_logo.jpg",
-      start: "January 2025",
+      start: "Jan 2025",
       end: "Present",
       description:
         "TBD",
