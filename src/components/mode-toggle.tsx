@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
+import Particles from "./particles";
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -17,6 +18,8 @@ export function ModeToggle() {
     >
       <SunIcon className="h-[1.2rem] w-[1.2rem] text-neutral-800 dark:hidden dark:text-neutral-200" />
       <MoonIcon className="hidden h-[1.2rem] w-[1.2rem] text-neutral-800 dark:block dark:text-neutral-200" />
+      <Particles particleColor="0, 0, 0" className="absolute inset-0 pointer-events-none" quantity={50} />
     </Button>
   );
 }
+

@@ -4,10 +4,12 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 import { DATA } from "@/data/resume";
 import { Tooltip } from "@/components/ui/tooltip";
+import Particles from "./particles";
 
 export default function Navbar() {
   return (
     <nav className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
+      <Particles particleColor="255, 255, 255" className="absolute inset-0 pointer-events-none" quantity={50} />
       <div className="w-full px-[4vw]"> {/* Adjust padding to be responsive */}
         <div className="flex flex-wrap justify-between h-14 items-center">
           {/* Logo / Title */}
@@ -41,7 +43,7 @@ export default function Navbar() {
                 </Tooltip>
               ))}
             <Separator orientation="vertical" className="h-full" />
-            <ModeToggle />
+            <ModeToggle/>
             <a href="/Danial_Suhail_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Button size="sm">Resume</Button>
             </a>

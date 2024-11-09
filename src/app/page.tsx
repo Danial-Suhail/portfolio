@@ -2,20 +2,22 @@ import BlurFade from "@/components/blureffects/blur-fade";
 import BlurFadeText from "@/components/blureffects/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 // import { div } from "framer-motion/client";
 import Link from "next/link";
 import Image from "next/image";
+import Particles from "@/components/particles";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
     <div style={{ zoom: "160%" }}>
+      <Particles particleColor="255, 255, 255" className="absolute inset-0 pointer-events-none" quantity={50} />
+      <Particles particleColor="0,0,0" className="absolute inset-0 pointer-events-none" quantity={50} />
     <main className="flex flex-col min-h-[100dvh] space-y-10">
-    <section id="top" className="pt-20">
+      <section id="top" className="pt-20">
           <div className="w-full mx-auto flex flex-col items-center space-y-8">
             {/* Grouped Text and Image with Image on Right */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
@@ -42,14 +44,9 @@ export default function Page() {
                 <BlurFadeText
                   className="pl-1 text-left tracking-tighter sm:text-sm md:text-base xl:max-w-[400px]"
                   delay={BLUR_FADE_DELAY}
-                  text= {DATA.description}
+                  text= "Software Engineer | Full-Stack Developer | Waterloo, ON" 
                 />
-                {/* <BlurFadeText
-                  className="tracking-tighter sm:text-sm md:text-md xl:max-w-[200px]"
-                  delay={BLUR_FADE_DELAY}
-                  text= "Waterloo, Ontario"
-                /> */}
-
+  
               </div>
 
               {/* Avatar with pink border */}

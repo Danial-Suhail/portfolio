@@ -168,12 +168,12 @@ export const DATA = {
         "TBD",
     },
     {
-      company: "Waterloo Formula Electric",
+      company: "Waterloo Midnight Sun",
       href: "https://www.uwfsae.ca",
       badges: [],
       location: "Hybrid",
       title: "Firmware Developer",
-      logoUrl: "/images/formula-electric-logo.png",
+      logoUrl: "/images/midnight-sun-logo.png",
       start: "Sept 2024",
       end: "Present",
       description:

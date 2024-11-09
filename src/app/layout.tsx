@@ -7,6 +7,8 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import localfont from "next/font/local"
 import "./globals.css";
+import Particles from "@/components/particles";
+import { useTheme } from "next-themes";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -73,6 +75,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+  
   return (
     <html lang="en" suppressHydrationWarning>
       <body
