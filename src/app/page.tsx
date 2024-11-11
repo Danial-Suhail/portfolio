@@ -4,10 +4,10 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
-// import { div } from "framer-motion/client";
 import Link from "next/link";
 import Image from "next/image";
 import Particles from "@/components/particles";
+import SkillIcon from "@/components/skill-icon";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -57,6 +57,7 @@ export default function Page() {
           src={DATA.avatarUrl}
           alt={DATA.name}
           fill
+          priority={true}
           className="rounded-full object-cover border border-white dark:border-gray-800 bg-muted"
         />
   </div>
@@ -119,9 +120,7 @@ export default function Page() {
       {DATA.skills.map((skill, id) => (
         <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
           <a href={skill.websiteUrl} target="_blank" rel="noopener noreferrer">
-            <div className="h-12 w-12 flex items-center justify-center hover:opacity-80 transition-opacity duration-200">
-              {skill.svg}
-            </div>
+            <SkillIcon icon={skill.svg} text={skill.name}/>
           </a>
         </BlurFade>
             ))}
@@ -129,7 +128,7 @@ export default function Page() {
         </div>
       </section>
       <section id="projects">
-        <div className="space-y-12 w-full pt-6">
+        <div className="space-y-12 w-full">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
