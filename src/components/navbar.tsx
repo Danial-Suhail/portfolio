@@ -37,9 +37,9 @@ export default function Navbar() {
               .filter(([_, social]) => social.navbar)
               .map(([name, social]) => (
                 <Tooltip key={name}>
-                  <Link href={social.url} className="font-medium flex items-center text-sm transition-colors hover:underline">
+                  <a href={social.url} target="_blank" rel="noopener noreferrer" className="font-medium flex items-center text-sm transition-colors hover:underline">
                     <social.icon className="h-5 w-5" />
-                  </Link>
+                  </a>
                 </Tooltip>
               ))}
             <Separator orientation="vertical" className="h-full" />
