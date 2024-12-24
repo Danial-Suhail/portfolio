@@ -46,7 +46,6 @@ export default function Page() {
                   delay={BLUR_FADE_DELAY}
                   text= "Software Engineer | Full-Stack Developer | Waterloo, ON" 
                 />
-  
               </div>
 
               {/* Avatar with pink border */}
