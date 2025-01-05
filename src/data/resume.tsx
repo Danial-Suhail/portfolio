@@ -303,5 +303,90 @@ export const DATA = {
       image: "/images/fitcheck.png",
       video: "",
     },
+    {
+      title: "STM32 Smart Waste Management System",
+      href: "https://docs.google.com/document/d/1o-OdWcrlulIZzCEvijpk6IIDnG2WARSTwLv7ezceM3E/edit?usp=sharing",
+      dates: "September 2024 - December 2024",
+      active: true,
+      description:
+        "Our project is an innovative waste management system featuring a bin with three compartments designated for recycling, compost, and regular trash. Users interact with the system by speaking into a microphone to identify the item they wish to dispose of. A microcontroller wirelessly transmits the speech data to a second microcontroller within the bin, which processes the input and automatically opens the appropriate compartment. Furthermore, ultrasonic sensors are integrated into each compartment to monitor fill levels, which are displayed in real-time on corresponding LCD screens, enhancing usability and efficiency.",
+      technologies: [
+        "C",
+        "I2C",
+        "UART",
+        "PWM",
+        "STM32CubeIDE",
+      ],
+      links: [
+        {
+          type: "Paper",
+          href: "https://docs.google.com/document/d/1o-OdWcrlulIZzCEvijpk6IIDnG2WARSTwLv7ezceM3E/edit?usp=sharing",
+          icon: <Icons.article className="size-3" />,
+        },
+        {
+        type: "Source",
+        href: "https://github.com/Danial-Suhail/stm32-smart-trash-can",
+        icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/images/stm32_trash_can.png",
+      video: "",
+    },
+    {
+      title: "SmartVault - JavaFX Bank System Application",
+      href: "https://docs.google.com/presentation/d/1Vt7H3U_DBgcssSejGT6UBKeuwPQlSceq0ehzFcAML8c/edit?usp=sharing",
+      dates: "April 2024 - June 2024",
+      active: true,
+      description:
+        "SmartVault is an innovative bank system application that allows users to transfer their money into the bank account, review/cash out their balance, view recent transactions, interact with a stock market simulation to earn vouchers, and finally have access to AI chat help for further inquiries.",
+      technologies: [
+        "Java",
+        "JavaFX",
+        "OpenCV",
+        "Java Swing",
+        "TailwindCSS",
+        "Zxing",
+        "Alpha Vantage",
+        "NetBeans",
+      ],
+      links: [
+        {
+          type: "Video",
+          href: "https://www.youtube.com/watch?v=Vu_eO2Fyd28&ab_channel=WashedProgrammer",
+          icon: <Icons.video className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/Danial-Suhail/SmartVault",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/images/smartvault.png",
+      video: "",
+    },
+    {
+      title: "BookVault - C# Library Management System",
+      href: "https://github.com/Danial-Suhail/BookVault",
+      dates: "January 2023 - February 2023",
+      active: true,
+      description:
+        "The C# Book Database Management Application simulates a library check-out and return system. Users can log in with existing credentials or create a new account, with data saved to a file. The program stores details of 10-12 books, including book name, ISBN, availability, and rating. Users can check out one book at a time by entering or scanning the ISBN-13, set a return date, and rate the book, with the average rating stored in the file. Upon returning a book, users are notified if the return is past the due date. The program saves user changes to a text file for future sessions and works with both USB and webcam barcode scanners to locate ISBN-13 numbers. A quit option exits the program while saving changes.",
+      technologies: [
+        "C#",
+        "Windows Forms",
+        ".NET",
+        "Zxing",
+        "Visual Studio",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Adam-Omarali/yellow-fish",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/images/bookvault.png",
+      video: "",
+    },
   ],
 } as const;

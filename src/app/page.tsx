@@ -8,10 +8,15 @@ import Link from "next/link";
 import Image from "next/image";
 import Particles from "@/components/particles";
 import SkillIcon from "@/components/skill-icon";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const chunkedProjects = Array.from(
+    { length: Math.ceil(DATA.projects.length / 4) },
+    (_, i) => DATA.projects.slice(i * 4, i * 4 + 4)
+  );
   return (
     <div style={{ zoom: "160%" }}>
       <Particles particleColor="255, 255, 255" className="absolute inset-0 pointer-events-none" quantity={50} />
@@ -127,42 +132,54 @@ export default function Page() {
         </div>
       </section>
       <section id="projects">
-        <div className="space-y-12 w-full">
-          <BlurFade delay={BLUR_FADE_DELAY * 11}>
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-              
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Explore My Recent Projects
-                </h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve developed a range of projects, from sleek websites to sophisticated web applications. Here are a few highlights.
-                </p>
+          <div className="space-y-12 w-full">
+            <BlurFade delay={BLUR_FADE_DELAY * 11}>
+              <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="space-y-2">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    Explore My Recent Projects
+                  </h2>
+                  <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    I&apos;ve developed a range of projects, from sleek websites
+                    to sophisticated web applications. Here are a few
+                    highlights.
+                  </p>
+                </div>
               </div>
+            </BlurFade>
+            <div className="max-w-[800px] mx-auto">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {chunkedProjects.map((projectGroup, groupIndex) => (
+                    <CarouselItem key={groupIndex}>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {projectGroup.map((project, id) => (
+                          <BlurFade
+                            key={project.title}
+                            delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                          >
+                            <ProjectCard
+                              href={project.href}
+                              title={project.title}
+                              description={project.description}
+                              dates={project.dates}
+                              tags={project.technologies}
+                              image={project.image}
+                              video={project.video}
+                              links={project.links}
+                            />
+                          </BlurFade>
+                        ))}
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
             </div>
-          </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-            {DATA.projects.map((project, id) => (
-              <BlurFade
-                key={project.title}
-                delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-              >
-                <ProjectCard
-                  href={project.href}
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  video={project.video}
-                  links={project.links}
-                />
-              </BlurFade>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full pt-6 pb-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
