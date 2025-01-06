@@ -156,18 +156,18 @@ export const DATA = {
   },
 
   work: [
-    {
-      company: "WAT.ai",
-      badges: [],
-      href: "https://watai.ca/",
-      location: "Remote",
-      title: "Machine Learning Engineer",
-      logoUrl: "/images/wat_ai_logo.jpg",
-      start: "Jan 2025",
-      end: "Present",
-      description:
-        "TBD",
-    },
+    // {
+    //   company: "WAT.ai",
+    //   badges: [],
+    //   href: "https://watai.ca/",
+    //   location: "Remote",
+    //   title: "Machine Learning Engineer",
+    //   logoUrl: "/images/wat_ai_logo.jpg",
+    //   start: "Jan 2025",
+    //   end: "Present",
+    //   description:
+    //     "TBD",
+    // },
     {
       company: "Waterloo Midnight Sun",
       href: "https://www.uwfsae.ca",
