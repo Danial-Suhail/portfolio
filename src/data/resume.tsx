@@ -381,7 +381,7 @@ export const DATA = {
       links: [
         {
           type: "Source",
-          href: "https://github.com/Adam-Omarali/yellow-fish",
+          href: "https://github.com/Danial-Suhail/BookVault",
           icon: <Icons.github className="size-3" />,
         },
       ],

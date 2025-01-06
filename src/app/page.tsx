@@ -24,19 +24,14 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="top" className="pt-20">
           <div className="w-full mx-auto flex flex-col items-center space-y-8">
-            {/* Grouped Text and Image with Image on Right */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-              {/* Text content */}
               <div className="relative text-center md:text-left space-y-2">
                 <div className="relative">
-                  {/* Pink outline layer */}
                   <BlurFade delay={BLUR_FADE_DELAY}>
                     <span className="absolute text-pink-500 -translate-y-2 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap hidden sm:block">
                     DANIAL SUHAIL
                     </span>
                   </BlurFade>
-
-                  {/* White text layer */}
                   <BlurFadeText
                     delay={BLUR_FADE_DELAY}
                     className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap mr-5"
@@ -45,39 +40,33 @@ export default function Page() {
                   />
                 </div>
 
-                {/* Subtitle */}
                 <BlurFadeText
                   className="pl-1 text-left tracking-tighter sm:text-sm md:text-base xl:max-w-[400px]"
                   delay={BLUR_FADE_DELAY}
                   text= "Software Engineer | Full-Stack Developer | Waterloo, ON" 
                 />
               </div>
-
-              {/* Avatar with pink border */}
-<BlurFade delay={BLUR_FADE_DELAY}>
-  <div className="relative flex items-center justify-center  w-[13.75rem] h-[13.75rem]">
-    <div className="absolute inset-0 rounded-full border-4 border-pink-500 z-0 translate-y-1"></div>
-    <Image
-          src={DATA.avatarUrl}
-          alt={DATA.name}
-          fill
-          priority={true}
-          className="rounded-full object-cover border border-white dark:border-gray-800 bg-muted"
-        />
-  </div>
-</BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY}>
+              <div className="relative flex items-center justify-center  w-[13.75rem] h-[13.75rem]">
+                <div className="absolute inset-0 rounded-full border-4 border-pink-500 z-0 translate-y-1"></div>
+                <Image
+                      src={DATA.avatarUrl}
+                      alt={DATA.name}
+                      fill
+                      priority={true}
+                      className="rounded-full object-cover border border-white dark:border-gray-800 bg-muted"
+                    />
+              </div>
+            </BlurFade>
             </div>
           </div>
         </section>
-
-
-<section id="about">
-
-        <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <h2 className="text-xl font-bold pb-2">About Me</h2>
-        </BlurFade>
-        <BlurFade delay={BLUR_FADE_DELAY * 4}>
-        <div className="prose max-w-full text-pretty text-sm text-gray-800 dark:text-gray-200">
+        <section id="about">
+          <BlurFade delay={BLUR_FADE_DELAY * 3}>
+            <h2 className="text-xl font-bold pb-2">About Me</h2>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 4}>
+          <div className="prose max-w-full text-pretty text-sm text-gray-800 dark:text-gray-200">
             Hey there! I&apos;m Danial, currently studying <a 
   href="https://uwaterloo.ca/future-students/programs/computer-engineering" target="_blank" rel="noopener noreferrer"
   className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
@@ -132,27 +121,27 @@ export default function Page() {
         </div>
       </section>
       <section id="projects">
-          <div className="space-y-12 w-full">
-            <BlurFade delay={BLUR_FADE_DELAY * 11}>
-              <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Explore My Recent Projects
-                  </h2>
-                  <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    I&apos;ve developed a range of projects, from sleek websites
-                    to sophisticated web applications. Here are a few
-                    highlights.
-                  </p>
-                </div>
+        <div className="space-y-12 w-full">
+          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Explore My Recent Projects
+                </h2>
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  I&apos;ve developed a range of projects, from sleek websites
+                  to sophisticated web applications. Here are a few highlights.
+                </p>
               </div>
-            </BlurFade>
-            <div className="max-w-[800px] mx-auto">
+            </div>
+          </BlurFade>
+          <div className="max-w-[800px] mx-auto">
+            <div className="hidden sm:block">
               <Carousel className="w-full">
                 <CarouselContent>
                   {chunkedProjects.map((projectGroup, groupIndex) => (
-                    <CarouselItem key={groupIndex}>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <CarouselItem key={groupIndex} className ="pt-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-4">
                         {projectGroup.map((project, id) => (
                           <BlurFade
                             key={project.title}
@@ -178,8 +167,25 @@ export default function Page() {
                 <CarouselNext />
               </Carousel>
             </div>
+            <div className="sm:hidden grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {DATA.projects.map((project, id) => (
+                <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
+                  <ProjectCard
+                    href={project.href}
+                    title={project.title}
+                    description={project.description}
+                    dates={project.dates}
+                    tags={project.technologies}
+                    image={project.image}
+                    video={project.video}
+                    links={project.links}
+                  />
+                </BlurFade>
+              ))}
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full pt-6 pb-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
