@@ -17,6 +17,9 @@ export default function Page() {
     { length: Math.ceil(DATA.projects.length / 4) },
     (_, i) => DATA.projects.slice(i * 4, i * 4 + 4)
   );
+
+
+  
   return (
     <div style={{ zoom: "160%" }}>
       <Particles particleColor="255, 255, 255" className="absolute inset-0 pointer-events-none" quantity={50} />
@@ -138,7 +141,7 @@ export default function Page() {
           <div className="max-w-[800px] mx-auto">
             <div className="hidden sm:block">
               <Carousel className="w-full">
-                <CarouselContent>
+                <CarouselContent className="select-none ">
                   {chunkedProjects.map((projectGroup, groupIndex) => (
                     <CarouselItem key={groupIndex} className ="pt-4">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-4">

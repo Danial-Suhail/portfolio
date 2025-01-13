@@ -168,6 +168,20 @@ export const DATA = {
     //   description:
     //     "TBD",
     // },
+
+        {
+      company: "WATonomous",
+      badges: [],
+      href: "https://www.watonomous.ca/",
+      location: "Hybrid",
+      title: "Machine Learning Engineer",
+      logoUrl: "/images/watonomous_logo.jpg",
+      start: "Jan 2025",
+      end: "Present",
+      description:
+        "ROS Navigation Systems 🤖",
+    },
+
     {
       company: "Waterloo Midnight Sun",
       href: "https://www.uwfsae.ca",
@@ -178,7 +192,7 @@ export const DATA = {
       start: "Sept 2024",
       end: "Present",
       description:
-        "TBD",
+        "Solar Car Control Systems ☀️",
     },
   ],
   education: [

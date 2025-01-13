@@ -85,16 +85,16 @@ export const ResumeCard = ({
         </CardHeader>
         {description && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, maxHeight: 0 }}
             animate={{
               opacity: isExpanded ? 1 : 0,
-              height: isExpanded ? "auto" : 0,
+              maxHeight: isExpanded ? 500 : 0,  // Specify a maxHeight for a smooth transition
             }}
             transition={{
-              duration: 0.7,
-              ease: [0.16, 1, 0.3, 1],
+              duration: 0.5,  // Adjusted for smoother animation
+              ease: "easeInOut",
             }}
-            className="mt-2 text-xs sm:text-sm"
+            className="mt-2 text-[5px] font-bold sm:text-xs overflow-hidden"
           >
             {description}
           </motion.div>
