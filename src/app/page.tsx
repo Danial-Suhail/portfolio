@@ -75,7 +75,12 @@ export default function Page() {
   className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
 >
   Computer Engineering 
-</a> at the University of Waterloo. I&apos;m passionate about bringing ideas to life through building websites, competitive typing, and sharpening my skills in photo/video editing.
+</a> at the University of Waterloo. I&apos;m passionate about bringing ideas to life through building websites, photo/video editing, and sharpening my skills in <a 
+  href="https://monkeytype.com/profile/Draconic" target="_blank" rel="noopener noreferrer"
+  className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
+>
+  Competitive Typing
+</a>.
         </div>
         </BlurFade>
       </section>
