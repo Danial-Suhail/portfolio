@@ -35,46 +35,25 @@ variable: "--font-SketchetikFillLight"
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL(DATA.url),
-  title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
-  },
+  metadataBase: new URL('https://danialsuhail.com'),
+  title: 'Danial Suhail',
   description: "I'm an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON",
   openGraph: {
+    url: 'https://danialsuhail.com',
+    type: 'website',
     title: 'Danial Suhail',
     description: "I'm an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON",
-    url: DATA.url,
-    siteName: `${DATA.name}`,
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: '/banner.png',
-        width: 1200,
-        height: 630,
-        alt: '',
-      },
-    ],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    images: [{
+      url: '/banner.png',  // Make sure banner.png is in your public folder
+      width: 1200,
+      height: 822,
+    }],
   },
   twitter: {
-    title: `${DATA.name}`,
-    card: "summary_large_image",
-  },
-  verification: {
-    google: "",
-    yandex: "",
+    card: 'summary_large_image',
+    title: 'Danial Suhail',
+    description: "I'm an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON",
+    images: ['/banner.png'],
   },
 };
 
