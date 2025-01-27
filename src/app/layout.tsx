@@ -33,29 +33,29 @@ const SketchetikFillLight = localfont({
 variable: "--font-SketchetikFillLight"
 });
 
+
 export const metadata: Metadata = {
-  metadataBase: new URL('danialsuhail.com'), 
-  title: 'Danial Suhail',
-  description: 'Im an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON',
+  metadataBase: new URL(DATA.url),
+  title: {
+    default: DATA.name,
+    template: `%s | ${DATA.name}`,
+  },
+  description: "I'm an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON",
   openGraph: {
-    type: 'website',
-    title: 'Danial Suhail | Software Engineer',
-    description: 'Im an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON',
+    title: 'Danial Suhail',
+    description: "I'm an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON",
+    url: DATA.url,
+    siteName: `${DATA.name}`,
+    locale: "en_US",
+    type: "website",
     images: [
       {
-        url: '/banner.png', 
+        url: '/banner.png',
         width: 1200,
         height: 630,
         alt: '',
       },
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Danial Suhail',
-    description: 'Im an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON',
-    creator: '@danial_suhail_', 
-    images: ['/banner.png'],
   },
   robots: {
     index: true,
@@ -63,13 +63,18 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
+  twitter: {
+    title: `${DATA.name}`,
+    card: "summary_large_image",
+  },
   verification: {
-    google: 'your-google-verification-code',
+    google: "",
+    yandex: "",
   },
 };
 
@@ -84,7 +89,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
                 className={cn(
-                  "min-h-screen bg-background font-sans antialiased px-6 sm:px-12 md:px-24",
+                  "min-h-screen bg-background font-sans antialiased px-6 sm:px-12 md:px-24", // Adjusted padding
                   fontSans.variable,
                   Juliette.variable,
                   SketchetikFillLight.variable

@@ -5,7 +5,7 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 export const DATA = {
   name: "Danial Suhail",
   initials: "DS",
-  url: "https://danial-suhail.me",
+  url: "https://danialsuhail.com",
   location: "Milton, ON",
   locationLink: "https://www.google.com/maps/place/milton",
   description:
