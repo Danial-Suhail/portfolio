@@ -174,7 +174,7 @@ export const DATA = {
       badges: [],
       href: "https://www.watonomous.ca/",
       location: "Hybrid",
-      title: "Machine Learning Engineer",
+      title: "Autonomous Software Developer",
       logoUrl: "/images/watonomous_logo.jpg",
       start: "Jan 2025",
       end: "Present",
@@ -379,12 +379,36 @@ export const DATA = {
       video: "",
     },
     {
+      title: "CampusChronicles",
+      href: "https://www.linkedin.com/posts/shahmeerkh_uofthacks-campuschronicles-innovation-activity-7287176392067162113-fypg",
+      dates: "January 2025 - February 2025",
+      active: true,
+      description:
+        "Campus Chronicles is an interactive platform that helps University of Toronto students relive and share their campus memories. Users can tag moments on an interactive UofT map, upload photos, videos, or notes, and create digital scrapbooks to capture their university experiences. Memories can be shared with friends or kept private, and nearby shared moments can be explored—like a UofT version of the Snapchat map. With features like voice-to-text and AI narration, Campus Chronicles offers a digital way to preserve and revisit the stories tied to campus life.",
+      technologies: [
+        "React",
+        "Tailwind CSS",
+        "Mapbox",
+        "Firebase",
+        "Clerk",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/xv786vx/uofthacks",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/images/campuschronicles.jpg",
+      video: "",
+    },
+    {
       title: "BookVault - C# Library Management System",
       href: "https://github.com/Danial-Suhail/BookVault",
       dates: "January 2023 - February 2023",
       active: true,
       description:
-        "The C# Book Database Management Application simulates a library check-out and return system. Users can log in with existing credentials or create a new account, with data saved to a file. The program stores details of 10-12 books, including book name, ISBN, availability, and rating. Users can check out one book at a time by entering or scanning the ISBN-13, set a return date, and rate the book, with the average rating stored in the file. Upon returning a book, users are notified if the return is past the due date. The program saves user changes to a text file for future sessions and works with both USB and webcam barcode scanners to locate ISBN-13 numbers. A quit option exits the program while saving changes.",
+        "This C# Book Database Management Application simulates a library check-out and return system. Users can log in with existing credentials or create a new account, with data saved to a file. The program stores details of 10-12 books, including book name, ISBN, availability, and rating. Users can check out one book at a time by entering or scanning the ISBN-13, set a return date, and rate the book, with the average rating stored in the file. Upon returning a book, users are notified if the return is past the due date. The program saves user changes to a text file for future sessions and works with both USB and webcam barcode scanners to locate ISBN-13 numbers. A quit option exits the program while saving changes.",
       technologies: [
         "C#",
         "Windows Forms",
