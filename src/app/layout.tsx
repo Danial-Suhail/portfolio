@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     title: 'Danial Suhail',
     description: "I'm an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON.",
     images: [{
-      url: '/images/banner.png',
-      width: 1314,
-      height: 900,
+      url: 'https://opengraph.b-cdn.net/production/images/db1a112c-0ed1-47eb-a8b7-156c8b2bd251.png?token=5O_qwy-ApRnk9hl-Fl6Pf_6bvYvd2dIvs1xby63wLN4&height=822&width=1200&expires=33274002237',
+      width: 1200,
+      height: 822,
       alt: 'Danial Suhail',
     }],
   },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Danial Suhail',
     description: "I'm an 18 year old Software Engineer and Full-Stack Developer based in Waterloo, ON.",
-    images: ['/images/banner.png'],
+    images: ['https://opengraph.b-cdn.net/production/images/db1a112c-0ed1-47eb-a8b7-156c8b2bd251.png?token=5O_qwy-ApRnk9hl-Fl6Pf_6bvYvd2dIvs1xby63wLN4&height=822&width=1200&expires=33274002237'],
   },
 };
 
