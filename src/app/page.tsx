@@ -17,11 +17,9 @@ export default function Page() {
     { length: Math.ceil(DATA.projects.length / 4) },
     (_, i) => DATA.projects.slice(i * 4, i * 4 + 4)
   );
-
-
-  
+ 
   return (
-    <div style={{ zoom: "160%" }}>
+    <div className="page-zoom">
       <Particles particleColor="255, 255, 255" className="absolute inset-0 pointer-events-none" quantity={50} />
       <Particles particleColor="0,0,0" className="absolute inset-0 pointer-events-none" quantity={50} />
     <main className="flex flex-col min-h-[100dvh] space-y-10">
