@@ -168,6 +168,56 @@ html {
 }
 
 .page-zoom {
-  zoom: 160%
+  zoom: 160%;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: hidden;
+}
+
+/* Hide scrollbar for all browsers */
+body {
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;  /* Width of vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);  /* Subtle dark track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    transparent,
+    rgba(236, 72, 153, 0.7),  /* pink-500 with opacity */
+    rgba(236, 72, 153, 0.7),
+    transparent
+  );
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    transparent,
+    rgba(236, 72, 153, 0.9),  /* Brighter on hover */
+    rgba(236, 72, 153, 0.9),
+    transparent
+  );
+  background-clip: content-box;
+}
+
+/* Hide horizontal scrollbar */
+::-webkit-scrollbar-horizontal {
+  display: none;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(236, 72, 153, 0.7) rgba(0, 0, 0, 0.2);
 }
 
