@@ -9,6 +9,7 @@ import localfont from "next/font/local"
 import "./globals.css";
 import Particles from "@/components/particles";
 import { useTheme } from "next-themes";
+import { ShogiSoundProvider } from "@/components/shogi-sound";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -67,21 +68,23 @@ export default function RootLayout({
   
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-                className={cn(
-                  "min-h-screen bg-background font-sans antialiased px-6 sm:px-12 md:px-24", // Adjusted padding
-                  fontSans.variable,
-                  Juliette.variable,
-                  SketchetikFillLight.variable
-                )}
-      >
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
-        </ThemeProvider>
-      </body>
+             <body
+                 className={cn(
+                   "min-h-screen bg-background font-sans antialiased px-6 sm:px-12 md:px-24 shogi-cursor", // Added shogi-cursor class
+                   fontSans.variable,
+                   Juliette.variable,
+                   SketchetikFillLight.variable
+                 )}
+       >
+         <ThemeProvider attribute="class" defaultTheme="dark">
+           <TooltipProvider delayDuration={0}>
+             <ShogiSoundProvider>
+               {children}
+               <Navbar />
+             </ShogiSoundProvider>
+           </TooltipProvider>
+         </ThemeProvider>
+       </body>
     </html>
   );
 }

@@ -94,7 +94,7 @@ export const ResumeCard = ({
               duration: 0.5,  // Adjusted for smoother animation
               ease: "easeInOut",
             }}
-            className="mt-2 text-[5px] font-bold sm:text-xs overflow-hidden"
+            className="mt-2 text-[5px] font-normal text-muted-foreground sm:text-xs overflow-hidden whitespace-pre-line leading-relaxed"
           >
             {description}
           </motion.div>

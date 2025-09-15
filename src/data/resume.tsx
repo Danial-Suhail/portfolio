@@ -156,18 +156,18 @@ export const DATA = {
   },
 
   work: [
-    // {
-    //   company: "WAT.ai",
-    //   badges: [],
-    //   href: "https://watai.ca/",
-    //   location: "Remote",
-    //   title: "Machine Learning Engineer",
-    //   logoUrl: "/images/wat_ai_logo.jpg",
-    //   start: "Jan 2025",
-    //   end: "Present",
-    //   description:
-    //     "TBD",
-    // },
+    {
+      company: "Upgraded",
+      badges: [],
+      href: "https://www.getupgraded.ca/",
+      location: "Remote",
+      title: "Software Engineering Intern",
+      logoUrl: "/images/upgraded.jpg",
+      start: "May 2025",
+      end: "Aug 2025",
+      description:
+        "★ Automated Grant Scheduling 📆\n★ Client Revenue Data Pipelines 🗂️",
+    },
 
         {
       company: "WATonomous",
@@ -179,7 +179,7 @@ export const DATA = {
       start: "Jan 2025",
       end: "Present",
       description:
-        "ROS Navigation Systems 🤖",
+        "★ ROS Navigation Systems 🤖",
     },
 
     {
@@ -192,7 +192,7 @@ export const DATA = {
       start: "Sept 2024",
       end: "Present",
       description:
-        "Solar Car Control Systems ☀️",
+        "★ Solar Car Control Systems ☀️",
     },
   ],
   education: [
@@ -212,7 +212,7 @@ export const DATA = {
       dates: "August 2023 - September 2023",
       active: true,
       description:
-        "[RecipeLens](https://www.youtube.com/watch?v=FqT2UZ11g0Y&embeds_referring_euri=https%3A%2F%2Fdevpost.com%2F&source_ve_path=MjM4NTE) provides easy access to high-quality recipes for everyone, from a college student with just a hotdog and a bun in the fridge, to a mom planning meals for her children, to a professional chef looking to refine their skills — all based on the ingredients they have on hand.",
+        "[RecipeLens](https://www.youtube.com/watch?v=FqT2UZ11g0Y&embeds_referring_euri=https%3A%2F%2Fdevpost.com%2F&source_ve_path=MjM4NTE) provides easy access to high-quality recipes for everyone, from a college student with just a hotdog and a bun in the fridge, to a mom planning meals for her children, to a professional chef looking to refine their skills all based on the ingredients they have on hand.",
       technologies: [
         "Flutter",
         "Dart",
@@ -250,7 +250,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://study-showdown-website.vercel.app/",
+          href: "https://study-showdown.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
         {

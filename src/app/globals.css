@@ -16,6 +16,15 @@
   font-style: normal;
 }
 
+/* Shogi Piece Cursor */
+.shogi-cursor {
+  cursor: url("/svg/shogi.svg"), auto;
+}
+
+.shogi-cursor * {
+  cursor: url("/svg/shogi.svg"), auto;
+}
+
 @layer base {
     :root {
       --background: 0 0% 100%;
@@ -219,5 +228,15 @@ body {
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(236, 72, 153, 0.7) rgba(0, 0, 0, 0.2);
+}
+
+::selection {
+  background-color: rgba(236, 72, 153, 0.3); /* pink-500 with opacity */
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(236, 72, 153, 0.3); /* pink-500 with opacity */
+  color: inherit;
 }
 

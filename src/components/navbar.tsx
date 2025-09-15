@@ -5,6 +5,8 @@ import { Separator } from "@/components/ui/separator";
 import { DATA } from "@/data/resume";
 import { Tooltip } from "@/components/ui/tooltip";
 import Particles from "./particles";
+import Image from "next/image";
+import BirdAnimation from "./bird-animation";
 
 export default function Navbar() {
   return (
@@ -49,6 +51,34 @@ export default function Navbar() {
             </a>
           </div>
         </div>
+      </div>
+      
+      {/* Swing Images hanging from navbar bottom */}
+      <div className="absolute top-full left-0 w-full pointer-events-none">
+        {/* Left swing - positioned below logo area */}
+        <div className="absolute left-[4vw] top-0" data-swing="left">
+          <Image
+            src="/pixel/left_swing.png"
+            alt="Left swing decoration"
+            width={40}
+            height={40}
+            className="opacity-80"
+          />
+        </div>
+        
+        {/* Right swing - positioned below social icons area */}
+        <div className="absolute right-[4vw] top-0" data-swing="right">
+          <Image
+            src="/pixel/right_swing.png"
+            alt="Right swing decoration"
+            width={40}
+            height={40}
+            className="opacity-80"
+          />
+        </div>
+        
+        {/* Bird Animation */}
+        <BirdAnimation />
       </div>
     </nav>
   );

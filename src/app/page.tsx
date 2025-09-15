@@ -1,3 +1,5 @@
+'use client';
+
 import BlurFade from "@/components/blureffects/blur-fade";
 import BlurFadeText from "@/components/blureffects/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
@@ -8,6 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Particles from "@/components/particles";
 import SkillIcon from "@/components/skill-icon";
+import BlurText from "@/components/BlurText";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const BLUR_FADE_DELAY = 0.04;
@@ -17,6 +20,10 @@ export default function Page() {
     { length: Math.ceil(DATA.projects.length / 4) },
     (_, i) => DATA.projects.slice(i * 4, i * 4 + 4)
   );
+
+  const handleAnimationComplete = () => {
+    console.log('Animation completed!');
+  };
  
   return (
     <div className="page-zoom">
@@ -64,7 +71,10 @@ export default function Page() {
         </section>
         <section id="about">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
-            <h2 className="text-xl font-bold pb-2">About Me</h2>
+            <BlurText
+              text="About Me"
+              className="text-xl font-bold pb-2"
+            />
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <div className="prose max-w-full text-pretty text-sm text-gray-800 dark:text-gray-200">
@@ -73,19 +83,38 @@ export default function Page() {
   className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
 >
   Computer Engineering 
-</a> at the University of Waterloo. I&apos;m passionate about bringing ideas to life through building websites, photo/video editing, and sharpening my skills in <a 
+</a> at the University of Waterloo. I thrive on bringing ideas to life through building websites, photo/video editing, and sharpening my skills in <a 
   href="https://monkeytype.com/profile/Draconic" target="_blank" rel="noopener noreferrer"
   className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
 >
   Competitive Typing
-</a>.
+</a>. Away from my keyboard you can find me playing <a 
+  href="http://www.shogifoundation.co.uk/aos.html" target="_blank" rel="noopener noreferrer"
+  className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
+>
+Shogi
+</a>, exploring snowboarding <a 
+  href="/images/sun-going-down.png" target="_blank" rel="noopener noreferrer"
+  className="font-sketchetikFillLight text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
+>
+🏂
+</a>, and reading <a 
+  href="https://www.goodreads.com/book/show/4865.How_to_Win_Friends_and_Influence_People" target="_blank" rel="noopener noreferrer"
+  className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
+>
+Psychology 
+</a> books.
         </div>
         </BlurFade>
       </section>
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
+            <BlurText
+              text="Work Experience"
+              onAnimationComplete={handleAnimationComplete}
+              className="text-xl font-bold"
+            />
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade 
@@ -113,8 +142,12 @@ export default function Page() {
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
         <BlurFade delay={BLUR_FADE_DELAY * 9}>
-      <h2 className="text-xl font-bold">Skills</h2><br></br>
-    </BlurFade>
+          <BlurText
+            text="Skills"
+            className="text-xl font-bold"
+          />
+          <br></br>
+        </BlurFade>
     <div className="flex flex-wrap justify-center gap-4">
       {DATA.skills.map((skill, id) => (
         <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
@@ -131,9 +164,11 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Explore My Recent Projects
-                </h2>
+                 <BlurText
+                   text="Explore My Recent Projects"
+                   className="text-3xl font-bold tracking-tighter sm:text-5xl"
+                   centered={true}
+                 />
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   I&apos;ve developed a range of projects, from sleek websites
                   to sophisticated web applications. Here are a few highlights.
@@ -141,7 +176,7 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className="max-w-[800px] mx-auto">
+          <div className="max-w-[800px] mx-auto px-12">
             <div className="hidden sm:block">
               <Carousel className="w-full">
                 <CarouselContent className="select-none ">
@@ -193,12 +228,14 @@ export default function Page() {
         </div>
       </section>
       <section id="contact">
-        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full pt-6 pb-12">
+        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full pb-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Keep in Touch
-              </h2>
+               <BlurText
+                 text="Keep in Touch"
+                 className="text-3xl font-bold tracking-tighter sm:text-5xl"
+                 centered={true}
+               />
               <p className=" mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Interested in connecting? Drop me a message at{" "}
           <a
