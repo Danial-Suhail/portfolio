@@ -221,36 +221,46 @@ export default function BirdAnimation({ className = '' }: BirdAnimationProps) {
           <DialogTitle className="sr-only">Duolingo profile</DialogTitle>
           <div aria-hidden className="pointer-events-none absolute inset-0 translate-x-[6px] translate-y-[6px] rounded-[18px] border-2 border-pink-500 bg-pink-500" />
           <div className="relative z-[1] flex max-h-[85dvh] flex-col gap-0 overflow-hidden rounded-[18px] border border-border/60 bg-card sm:max-h-[92vh] sm:gap-4 sm:overflow-y-auto sm:p-6 md:p-8">
-            <div className="sticky top-0 z-[202] flex shrink-0 items-center justify-end border-b border-border/50 bg-card/95 px-2 py-2 backdrop-blur-sm sm:hidden">
+            <div className="sticky top-0 z-[202] flex shrink-0 items-center justify-end border-b-0 bg-card/95 px-2 py-2 backdrop-blur-sm sm:hidden">
               <DialogClose className="rounded-full p-2 opacity-90 ring-offset-background transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2">
                 <X className="h-5 w-5" />
                 <span className="sr-only">Close</span>
               </DialogClose>
             </div>
-            <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-3 pt-1 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
-              <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-center sm:gap-3">
+            <div className="flex min-h-0 flex-1 flex-col justify-center overflow-y-auto px-3 py-6 sm:block sm:overflow-visible sm:px-0 sm:py-0 sm:pb-0 sm:pt-0">
+              {/*
+                object-cover fills each column’s box so top + bottom edges match across zoom.
+                (object-contain + object-top left different letterboxing per aspect ratio, so one
+                screenshot looked “taller” / misaligned at the bottom vs duo_bird_1.)
+                object-top keeps headers/UI near the top when we crop.
+              */}
+              <div
+                className={cn(
+                  'hidden w-full gap-3 sm:grid',
+                  'sm:grid-cols-[minmax(0,1fr)_minmax(0,1.65fr)_minmax(0,1fr)]',
+                  'sm:items-stretch sm:justify-items-stretch sm:pb-3'
+                )}
+              >
                 {DUO_IMAGES.map(({ src, alt, emphasize }) => (
                   <div
                     key={src}
                     className={cn(
-                      'relative flex w-full justify-center',
-                      'h-[min(22vh,160px)] max-sm:max-h-[180px] sm:h-[min(52vh,460px)]',
-                      emphasize
-                        ? 'sm:z-10 sm:min-w-0 sm:flex-[1.65] sm:-mx-1'
-                        : 'sm:min-w-0 sm:flex-1'
+                      'relative flex min-h-0 min-w-0 w-full justify-center overflow-hidden',
+                      'sm:h-[min(28rem,52vmin)]',
+                      emphasize && 'sm:z-10'
                     )}
                   >
                     <div
                       className={cn(
-                        'relative h-full w-full max-w-[min(100%,22rem)] sm:max-w-none',
-                        emphasize && 'sm:scale-[1.12]'
+                        'relative h-full w-full min-h-0 max-w-[min(100%,22rem)] sm:max-w-none',
+                        emphasize && 'sm:origin-top sm:scale-[1.12]'
                       )}
                     >
                       <Image
                         src={src}
                         alt={alt}
                         fill
-                        className="object-contain object-bottom"
+                        className="object-cover object-top"
                         sizes={
                           emphasize
                             ? '(max-width: 640px) 100vw, 42vw'
@@ -261,7 +271,7 @@ export default function BirdAnimation({ className = '' }: BirdAnimationProps) {
                   </div>
                 ))}
               </div>
-              <DialogFooter className="mt-4 flex w-full flex-col items-center justify-center border-t border-border/60 pt-4 sm:mt-2 sm:flex-row sm:justify-center sm:border-t-0 sm:pt-6">
+              <DialogFooter className="mt-0 flex w-full flex-col items-center justify-center border-t-0 pt-0 sm:mt-2 sm:flex-row sm:justify-center sm:border-t-0 sm:pt-6">
               <a
                 href={DUO_PROFILE_URL}
                 target="_blank"

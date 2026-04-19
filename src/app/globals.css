@@ -260,3 +260,68 @@ body {
   color: inherit;
 }
 
+/* Intro loader: Juliette signature stroke draw (see cursive-cool reference) */
+.sig-container {
+  animation: sig-fade-in 0.3s ease-out;
+}
+
+.sig-svg {
+  contain: layout paint;
+}
+
+.sig-path-draw {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sig-path-draw--active {
+  animation: sig-draw var(--sig-dur, 0.4s) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: var(--sig-delay, 0s);
+}
+
+@keyframes sig-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sig-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.intro-loader-content {
+  animation: sig-scale-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes sig-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sig-path-draw--active {
+    animation: none !important;
+  }
+
+  .intro-loader-content {
+    animation: none;
+  }
+
+  .sig-container {
+    animation: none;
+  }
+}
+

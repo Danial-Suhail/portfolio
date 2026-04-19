@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:signature": "node scripts/generate-signature-svg.mjs"
   },
   "dependencies": {
     "@nextui-org/react": "^2.4.8",
@@ -49,6 +50,7 @@
     "@types/three": "^0.169.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
+    "opentype.js": "^1.3.4",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.6.3"

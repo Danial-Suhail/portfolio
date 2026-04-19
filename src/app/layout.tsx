@@ -10,6 +10,7 @@ import "./globals.css";
 import Particles from "@/components/particles";
 import { useTheme } from "next-themes";
 import { ShogiSoundProvider } from "@/components/shogi-sound";
+import { IntroLoader } from "@/components/intro-loader";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -79,6 +80,7 @@ export default function RootLayout({
          <ThemeProvider attribute="class" defaultTheme="dark">
            <TooltipProvider delayDuration={0}>
              <ShogiSoundProvider>
+               <IntroLoader />
                {children}
                <Navbar />
              </ShogiSoundProvider>
