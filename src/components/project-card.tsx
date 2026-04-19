@@ -15,6 +15,7 @@ interface Props {
   title: string;
   href?: string;
   description: string;
+  mobileDescription?: string;
   dates: string;
   tags: readonly string[];
   link?: string;
@@ -32,6 +33,7 @@ export function ProjectCard({
   title,
   href,
   description,
+  mobileDescription,
   dates,
   tags,
   link,
@@ -60,7 +62,7 @@ export function ProjectCard({
             loop
             muted
             playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top" // needed because random black line at bottom of video
+            className="pointer-events-none mx-auto h-28 w-full object-cover object-top sm:h-40" // needed because random black line at bottom of video
           />
         )}
         {image && (
@@ -69,20 +71,27 @@ export function ProjectCard({
             alt={title}
             width={500}
             height={300}
-            className="h-40 w-full overflow-hidden object-cover object-top"
+            className="h-28 w-full overflow-hidden object-cover object-top sm:h-40"
           />
         )}
       </Link>
-      <CardHeader className="px-2">
+      <CardHeader className="px-1.5 sm:px-2">
         <div className="space-y-1">
-          <CardTitle className="mt-1 text-base">{title}</CardTitle>
-          <time className="font-sans text-xs">{dates}</time>
+          <CardTitle className="mt-1 text-sm leading-tight sm:text-base">{title}</CardTitle>
+          <time className="font-sans text-[10px] sm:text-xs">{dates}</time>
           <div className="hidden font-sans text-xs underline print:visible">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
-          <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
-            {description}
-          </Markdown>
+          <div className="sm:hidden [&_.prose]:mb-0">
+            <Markdown className="prose max-w-full text-pretty font-sans text-[11px] leading-snug text-muted-foreground dark:prose-invert sm:text-xs sm:leading-normal">
+              {mobileDescription ?? description}
+            </Markdown>
+          </div>
+          <div className="hidden sm:block [&_.prose]:mb-0">
+            <Markdown className="prose max-w-full text-pretty font-sans text-[11px] leading-snug text-muted-foreground dark:prose-invert sm:text-xs sm:leading-normal">
+              {description}
+            </Markdown>
+          </div>
         </div>
       </CardHeader>
       <CardContent className="mt-auto flex flex-col px-2">

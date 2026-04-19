@@ -76,10 +76,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "dialog-fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "dialog-fade-out": {
+          from: { opacity: "1" },
+          to: { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "dialog-fade-in": "dialog-fade-in 0.28s ease-out forwards",
+        "dialog-fade-out": "dialog-fade-out 0.22s ease-in forwards",
       },
     },
   },

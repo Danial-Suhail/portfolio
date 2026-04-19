@@ -16,7 +16,7 @@ export default function SkillIcon({ icon, text }: SkillIconProps) {
       animate="rest"
     >
       <motion.div
-        className="h-12 w-12 flex items-center justify-center cursor-pointer"
+        className="flex h-10 w-10 cursor-pointer items-center justify-center sm:h-12 sm:w-12"
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
         transition={{ type: "spring", stiffness: 300 }}
@@ -24,7 +24,7 @@ export default function SkillIcon({ icon, text }: SkillIconProps) {
         {icon}
       </motion.div>
       <motion.div
-        className="mt-3 text-center text-sm text-black dark:text-white"
+        className="mt-2 max-w-[4.5rem] text-center text-[11px] text-black dark:text-white sm:mt-3 sm:max-w-none sm:text-sm"
         variants={{
             rest: { opacity: 0, y: 10, textShadow: "none" },
             hover: {

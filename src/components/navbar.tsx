@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 import { DATA } from "@/data/resume";
@@ -10,7 +9,7 @@ import BirdAnimation from "./bird-animation";
 
 export default function Navbar() {
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
+    <nav className="duo-modal-blur-target fixed inset-x-0 top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
       <Particles particleColor="255, 255, 255" className="absolute inset-0 pointer-events-none" quantity={50} />
       <div className="w-full px-[4vw]"> {/* Adjust padding to be responsive */}
         <div className="flex flex-wrap justify-between h-14 items-center">
@@ -46,9 +45,6 @@ export default function Navbar() {
               ))}
             <Separator orientation="vertical" className="h-full" />
             <ModeToggle/>
-            <a href="/Danial_Suhail_Resume.pdf" target="_blank" rel="noopener noreferrer">
-              <Button size="sm">Resume</Button>
-            </a>
           </div>
         </div>
       </div>

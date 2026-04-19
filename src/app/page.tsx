@@ -29,33 +29,33 @@ export default function Page() {
     <div className="page-zoom">
       <Particles particleColor="255, 255, 255" className="absolute inset-0 pointer-events-none" quantity={50} />
       <Particles particleColor="0,0,0" className="absolute inset-0 pointer-events-none" quantity={50} />
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex flex-col min-h-[100dvh] space-y-8">
       <section id="top" className="pt-20">
           <div className="w-full mx-auto flex flex-col items-center space-y-8">
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <div className="relative text-center md:text-left space-y-2">
-                <div className="relative">
+                <div className="relative flex w-full justify-center md:justify-start">
                   <BlurFade delay={BLUR_FADE_DELAY}>
-                    <span className="absolute text-pink-500 -translate-y-2 text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap hidden sm:block">
+                    <span className="pointer-events-none absolute z-0 hidden text-pink-500 -translate-y-1 text-3xl font-bold tracking-tighter whitespace-nowrap sm:block sm:-translate-y-2 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                     DANIAL SUHAIL
                     </span>
                   </BlurFade>
                   <BlurFadeText
                     delay={BLUR_FADE_DELAY}
-                    className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl whitespace-nowrap mr-5"
+                    className="relative z-10 text-3xl font-bold tracking-tighter whitespace-nowrap sm:mr-5 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                     yOffset={8}
                     text="DANIAL SUHAIL"
                   />
                 </div>
 
                 <BlurFadeText
-                  className="pl-1 text-left tracking-tighter sm:text-sm md:text-base xl:max-w-[400px]"
+                  className="pl-1 text-left text-xs tracking-tighter sm:text-sm md:text-base xl:max-w-[400px]"
                   delay={BLUR_FADE_DELAY}
-                  text= "Software Engineer | Full-Stack Developer | Waterloo, ON" 
+                  text= "CE @ UWaterloo | Prev. SWE @ Ford | Waterloo, ON 🪿" 
                 />
               </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <div className="relative flex items-center justify-center  w-[13.75rem] h-[13.75rem]">
+              <div className="relative flex items-center justify-center w-[11rem] h-[11rem] sm:w-[13.75rem] sm:h-[13.75rem]">
                 <div className="absolute inset-0 rounded-full border-4 border-pink-500 z-0 translate-y-1"></div>
                 <Image
                       src={DATA.avatarUrl}
@@ -73,11 +73,11 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
             <BlurText
               text="About Me"
-              className="text-xl font-bold pb-2"
+              className="text-lg font-bold pb-2 sm:text-xl"
             />
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <div className="prose max-w-full text-pretty text-sm text-gray-800 dark:text-gray-200">
+          <div className="prose max-w-full text-pretty text-xs leading-relaxed text-gray-800 dark:text-gray-200 sm:text-sm sm:leading-normal">
             Hey there! I&apos;m Danial, currently studying <a 
   href="https://uwaterloo.ca/future-students/programs/computer-engineering" target="_blank" rel="noopener noreferrer"
   className="font-sketchetikFillLight italic text-pink-500 font-extrabold no-underline hover:text-pink-700 transition-colors duration-200"
@@ -113,7 +113,7 @@ Psychology
             <BlurText
               text="Work Experience"
               onAnimationComplete={handleAnimationComplete}
-              className="text-xl font-bold"
+              className="text-lg font-bold sm:text-xl"
             />
           </BlurFade>
           {DATA.work.map((work, id) => (
@@ -144,11 +144,11 @@ Psychology
         <BlurFade delay={BLUR_FADE_DELAY * 9}>
           <BlurText
             text="Skills"
-            className="text-xl font-bold"
+            className="text-lg font-bold sm:text-xl"
           />
           <br></br>
         </BlurFade>
-    <div className="flex flex-wrap justify-center gap-4">
+    <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
       {DATA.skills.map((skill, id) => (
         <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
           <a href={skill.websiteUrl} target="_blank" rel="noopener noreferrer">
@@ -166,64 +166,46 @@ Psychology
               <div className="space-y-2">
                  <BlurText
                    text="Explore My Recent Projects"
-                   className="text-3xl font-bold tracking-tighter sm:text-5xl"
+                   className="text-2xl font-bold tracking-tighter sm:text-5xl"
                    centered={true}
                  />
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve developed a range of projects, from sleek websites
-                  to sophisticated web applications. Here are a few highlights.
+                  A snapshot of what I’ve been solving lately 🧠
                 </p>
               </div>
             </div>
           </BlurFade>
-          <div className="max-w-[800px] mx-auto px-12">
-            <div className="hidden sm:block">
-              <Carousel className="w-full">
-                <CarouselContent className="select-none ">
-                  {chunkedProjects.map((projectGroup, groupIndex) => (
-                    <CarouselItem key={groupIndex} className ="pt-4">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 px-4">
-                        {projectGroup.map((project, id) => (
-                          <BlurFade
-                            key={project.title}
-                            delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-                          >
-                            <ProjectCard
-                              href={project.href}
-                              title={project.title}
-                              description={project.description}
-                              dates={project.dates}
-                              tags={project.technologies}
-                              image={project.image}
-                              video={project.video}
-                              links={project.links}
-                            />
-                          </BlurFade>
-                        ))}
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
-            </div>
-            <div className="sm:hidden grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {DATA.projects.map((project, id) => (
-                <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
-                  <ProjectCard
-                    href={project.href}
-                    title={project.title}
-                    description={project.description}
-                    dates={project.dates}
-                    tags={project.technologies}
-                    image={project.image}
-                    video={project.video}
-                    links={project.links}
-                  />
-                </BlurFade>
-              ))}
-            </div>
+          <div className="mx-auto max-w-[800px] px-3 sm:px-8 md:px-12">
+            <Carousel className="relative w-full pb-2 pt-1">
+              <CarouselContent className="select-none">
+                {chunkedProjects.map((projectGroup, groupIndex) => (
+                  <CarouselItem key={groupIndex} className="pt-2">
+                    <div className="grid grid-cols-2 gap-2 px-1 sm:gap-3 sm:px-4">
+                      {projectGroup.map((project, id) => (
+                        <BlurFade
+                          key={project.title}
+                          delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                        >
+                          <ProjectCard
+                            href={project.href}
+                            title={project.title}
+                            description={project.description}
+                            mobileDescription={project.mobileDescription}
+                            dates={project.dates}
+                            tags={project.technologies}
+                            image={project.image}
+                            video={project.video}
+                            links={project.links}
+                          />
+                        </BlurFade>
+                      ))}
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-1 z-10 h-9 w-9 border bg-background/95 shadow-sm sm:left-2 md:-left-12 md:h-8 md:w-8" />
+              <CarouselNext className="right-1 z-10 h-9 w-9 border bg-background/95 shadow-sm sm:right-2 md:-right-12 md:h-8 md:w-8" />
+            </Carousel>
           </div>
         </div>
       </section>
@@ -233,10 +215,10 @@ Psychology
             <div className="space-y-3">
                <BlurText
                  text="Keep in Touch"
-                 className="text-3xl font-bold tracking-tighter sm:text-5xl"
+                 className="text-2xl font-bold tracking-tighter sm:text-5xl"
                  centered={true}
                />
-              <p className=" mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              <p className="mx-auto max-w-[600px] text-sm text-muted-foreground sm:text-base md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Interested in connecting? Drop me a message at{" "}
           <a
             href="mailto:danialsuhailcs@gmail.com"
@@ -244,7 +226,7 @@ Psychology
           >
             danialsuhailcs@gmail.com
           </a>{" "}
-          and I&apos;ll get back to you soon.
+          and I&apos;ll get back to you soon 😄
         </p>
             </div>
           </BlurFade>

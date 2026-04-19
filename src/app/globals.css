@@ -168,6 +168,7 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 .glow-line {
@@ -180,6 +181,25 @@ html {
   zoom: 160%;
   overflow-x: hidden; /* Hide horizontal scrollbar */
   overflow-y: hidden;
+}
+
+@media (max-width: 639px) {
+  .page-zoom {
+    zoom: 118%;
+  }
+}
+
+html.duo-modal-open .page-zoom,
+html.duo-modal-open .duo-modal-blur-target {
+  filter: blur(10px);
+  transition: filter 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.duo-modal-open .page-zoom,
+  html.duo-modal-open .duo-modal-blur-target {
+    filter: blur(4px);
+  }
 }
 
 /* Hide scrollbar for all browsers */

@@ -9,7 +9,7 @@ export const DATA = {
   location: "Milton, ON",
   locationLink: "https://www.google.com/maps/place/milton",
   description:
-    "Software Engineer | Full-Stack Developer | Waterloo, ON",
+    "CE @ UWaterloo | Prev. @ Ford",
   summary:
     "Hey there! I'm Danial, currently studying Computer Engineering at the University of Waterloo. I'm passionate about bringing ideas to life through building websites, competitive typing, and sharpening my skills in photo/video editing.",
   avatarUrl: "/images/danialpic.png",
@@ -157,6 +157,19 @@ export const DATA = {
 
   work: [
     {
+      company: "Ford",
+      badges: [],
+      href: "https://www.ford.com/",
+      location: "On-site",
+      title: "HMI Software Developer Intern",
+      logoUrl: "/images/ford.png",
+      start: "Jan 2026",
+      end: "April 2026",
+      description:
+        "★ Infotainment Systems 🚙",
+    },
+
+    {
       company: "Upgraded",
       badges: [],
       href: "https://www.getupgraded.ca/",
@@ -169,7 +182,7 @@ export const DATA = {
         "★ Automated Grant Scheduling 📆\n★ Client Revenue Data Pipelines 🗂️",
     },
 
-        {
+    {
       company: "WATonomous",
       badges: [],
       href: "https://www.watonomous.ca/",
@@ -177,7 +190,7 @@ export const DATA = {
       title: "Autonomous Software Developer",
       logoUrl: "/images/watonomous_logo.jpg",
       start: "Jan 2025",
-      end: "Present",
+      end: "May 2025",
       description:
         "★ ROS Navigation Systems 🤖",
     },
@@ -190,7 +203,7 @@ export const DATA = {
       title: "Firmware Developer",
       logoUrl: "/images/midnight-sun-logo.png",
       start: "Sept 2024",
-      end: "Present",
+      end: "Jan 2025",
       description:
         "★ Solar Car Control Systems ☀️",
     },
@@ -213,6 +226,8 @@ export const DATA = {
       active: true,
       description:
         "[RecipeLens](https://www.youtube.com/watch?v=FqT2UZ11g0Y&embeds_referring_euri=https%3A%2F%2Fdevpost.com%2F&source_ve_path=MjM4NTE) provides easy access to high-quality recipes for everyone, from a college student with just a hotdog and a bun in the fridge, to a mom planning meals for her children, to a professional chef looking to refine their skills all based on the ingredients they have on hand.",
+      mobileDescription:
+        "RecipeLens suggests recipes from ingredients you already have, so students, families, and home chefs can plan meals fast.",
       technologies: [
         "Flutter",
         "Dart",
@@ -233,10 +248,12 @@ export const DATA = {
     {
       title: "Study Showdown",
       href: "https://devpost.com/software/study-showdown",
-      dates: "August 2024 - Present",
+      dates: "August 2024 - September 2024",
       active: true,
       description:
         "Study Showdown incentivizes staying on track with your studying by tracking the sites each user visits in a given period. Study Showdown does this by logging tab activity on Google Chrome, as its a Chrome Extension that connects to a NextJS website. By staying on studying and productivity-based domains like KhanAcademy, you earn points, and by going on unproductive websites, you lose points. At the end of the period, your points are calculated for that session and ranked amongst other users on a global leaderboard!",
+      mobileDescription:
+        "Study Showdown tracks browsing during study sessions and scores focus habits, with a global leaderboard for friendly competition.",
       technologies: [
         "Next.js",
         "React",
@@ -269,6 +286,8 @@ export const DATA = {
       active: true,
       description:
         "Lexigo is an AI-Powered Application that provides a unique language-learning experience which is globally accessible on IOS/AndroidOS. By opening the phone application you are able to walk around your environment in real-time and seek objects that interest you, and provide a translation for the selected language. This occurs while adding the objects to a list of learned words, to test in the future. The user will have the option to select the quiz mode, where the scanned objects get their own multiple choice dropdowns of similar words to the object and the user must use their knowledge to choose the correct word.",
+      mobileDescription:
+        "Lexigo uses your phone camera to identify objects, translate them in real time, and build quizzes from scanned vocabulary.",
       technologies: [
         "React Native",
         "Tailwind CSS",
@@ -300,6 +319,8 @@ export const DATA = {
       active: true,
       description:
         "Using Fit Check, users can scan clothes like tops, bottoms, hats, and shoes to create outfits and save them to their catalog, as well as share them with other Fit Check users! Users can contribute to the clothing dataset by scanning their articles of clothing, growing everyone's 'closet' and bringing the community closer together.",
+      mobileDescription:
+        "FitCheck lets users scan clothing items, build and save outfits, and share looks while growing a community closet dataset.",
       technologies: [
         "RedwoodJS",
         "React",
@@ -324,6 +345,8 @@ export const DATA = {
       active: true,
       description:
         "Our project is an innovative waste management system featuring a bin with three compartments designated for recycling, compost, and regular trash. Users interact with the system by speaking into a microphone to identify the item they wish to dispose of. A microcontroller wirelessly transmits the speech data to a second microcontroller within the bin, which processes the input and automatically opens the appropriate compartment. Furthermore, ultrasonic sensors are integrated into each compartment to monitor fill levels, which are displayed in real-time on corresponding LCD screens, enhancing usability and efficiency.",
+      mobileDescription:
+        "This STM32 system uses voice input to open the correct recycling, compost, or trash bin and tracks fill levels with ultrasonic sensors.",
       technologies: [
         "C",
         "I2C",
@@ -353,6 +376,8 @@ export const DATA = {
       active: true,
       description:
         "SmartVault is an innovative bank system application that allows users to transfer their money into the bank account, review/cash out their balance, view recent transactions, interact with a stock market simulation to earn vouchers, and finally have access to AI chat help for further inquiries.",
+      mobileDescription:
+        "SmartVault is a JavaFX banking app with deposits, withdrawals, transaction history, stock simulation rewards, and AI chat support.",
       technologies: [
         "Java",
         "JavaFX",
@@ -385,6 +410,8 @@ export const DATA = {
       active: true,
       description:
         "Campus Chronicles is an interactive platform that helps University of Toronto students relive and share their campus memories. Users can tag moments on an interactive UofT map, upload photos, videos, or notes, and create digital scrapbooks to capture their university experiences. Memories can be shared with friends or kept private, and nearby shared moments can be explored—like a UofT version of the Snapchat map. With features like voice-to-text and AI narration, Campus Chronicles offers a digital way to preserve and revisit the stories tied to campus life.",
+      mobileDescription:
+        "CampusChronicles lets students pin memories on a map, create scrapbooks, and share campus moments with voice-to-text and AI narration.",
       technologies: [
         "React",
         "Tailwind CSS",
@@ -409,6 +436,8 @@ export const DATA = {
       active: true,
       description:
         "This C# Book Database Management Application simulates a library check-out and return system. Users can log in with existing credentials or create a new account, with data saved to a file. The program stores details of 10-12 books, including book name, ISBN, availability, and rating. Users can check out one book at a time by entering or scanning the ISBN-13, set a return date, and rate the book, with the average rating stored in the file. Upon returning a book, users are notified if the return is past the due date. The program saves user changes to a text file for future sessions and works with both USB and webcam barcode scanners to locate ISBN-13 numbers. A quit option exits the program while saving changes.",
+      mobileDescription:
+        "BookVault is a C# library manager for login, checkout/return, ISBN scanning, due-date tracking, and persistent book ratings.",
       technologies: [
         "C#",
         "Windows Forms",

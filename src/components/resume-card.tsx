@@ -77,11 +77,12 @@ export const ResumeCard = ({
                 )}
               />
             </h3>
-            <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
+            <div className="hidden text-xs sm:text-sm tabular-nums text-muted-foreground text-right sm:block">
               {period}
             </div>
           </div>
           {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
+          <div className="text-xs tabular-nums text-muted-foreground sm:hidden">{period}</div>
         </CardHeader>
         {description && (
           <motion.div
@@ -94,7 +95,7 @@ export const ResumeCard = ({
               duration: 0.5,  // Adjusted for smoother animation
               ease: "easeInOut",
             }}
-            className="mt-2 text-[5px] font-normal text-muted-foreground sm:text-xs overflow-hidden whitespace-pre-line leading-relaxed"
+            className="mt-2 text-xs font-normal text-muted-foreground sm:text-xs overflow-hidden whitespace-pre-line leading-relaxed"
           >
             {description}
           </motion.div>

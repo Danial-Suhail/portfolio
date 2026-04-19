@@ -2,6 +2,27 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { cn } from '@/lib/utils';
+import { X } from 'lucide-react';
+
+const DUO_IMAGES: {
+  src: string;
+  alt: string;
+  emphasize?: boolean;
+}[] = [
+  { src: '/images/duo_bird_1.png', alt: 'Duolingo' },
+  { src: '/images/duo_profile.png', alt: 'Duolingo profile', emphasize: true },
+  { src: '/images/duo_bird_2.jpg', alt: 'Duolingo' },
+];
+
+const DUO_PROFILE_URL = 'https://www.duolingo.com/profile/draconiq_';
 
 interface BirdAnimationProps {
   className?: string;
@@ -18,6 +39,7 @@ export default function BirdAnimation({ className = '' }: BirdAnimationProps) {
     right: { x: 800, y: 10 } 
   });
   const containerRef = useRef<HTMLDivElement>(null);
+  const [duoModalOpen, setDuoModalOpen] = useState(false);
 
   // Animation timing
   const FRAME_DURATION = 100; // ms per frame
@@ -25,10 +47,17 @@ export default function BirdAnimation({ className = '' }: BirdAnimationProps) {
   const LANDING_DURATION = 1000; // ms to rest on swing
   const SPEECH_BUBBLE_DURATION = 2000; // ms to show speech bubble
 
-  // Handle bird click to redirect to Duolingo profile
-  const handleBirdClick = () => {
-    window.open('https://www.duolingo.com/profile/Draco978430', '_blank', 'noopener,noreferrer');
-  };
+  const handleBirdClick = () => setDuoModalOpen(true);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (duoModalOpen) {
+      root.classList.add('duo-modal-open');
+    } else {
+      root.classList.remove('duo-modal-open');
+    }
+    return () => root.classList.remove('duo-modal-open');
+  }, [duoModalOpen]);
 
   // Function to get actual swing positions
   const updateSwingPositions = () => {
@@ -187,6 +216,72 @@ export default function BirdAnimation({ className = '' }: BirdAnimationProps) {
 
   return (
     <>
+      <Dialog modal={false} open={duoModalOpen} onOpenChange={setDuoModalOpen}>
+        <DialogContent className="max-h-[85dvh] w-[calc(100vw-1rem)] max-w-4xl !bg-transparent !p-0 !shadow-none sm:max-h-[92vh] sm:w-[calc(100%-2rem)]">
+          <DialogTitle className="sr-only">Duolingo profile</DialogTitle>
+          <div aria-hidden className="pointer-events-none absolute inset-0 translate-x-[6px] translate-y-[6px] rounded-[18px] border-2 border-pink-500 bg-pink-500" />
+          <div className="relative z-[1] flex max-h-[85dvh] flex-col gap-0 overflow-hidden rounded-[18px] border border-border/60 bg-card sm:max-h-[92vh] sm:gap-4 sm:overflow-y-auto sm:p-6 md:p-8">
+            <div className="sticky top-0 z-[202] flex shrink-0 items-center justify-end border-b border-border/50 bg-card/95 px-2 py-2 backdrop-blur-sm sm:hidden">
+              <DialogClose className="rounded-full p-2 opacity-90 ring-offset-background transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2">
+                <X className="h-5 w-5" />
+                <span className="sr-only">Close</span>
+              </DialogClose>
+            </div>
+            <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-3 pt-1 sm:overflow-visible sm:px-0 sm:pb-0 sm:pt-0">
+              <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-end sm:justify-center sm:gap-3">
+                {DUO_IMAGES.map(({ src, alt, emphasize }) => (
+                  <div
+                    key={src}
+                    className={cn(
+                      'relative flex w-full justify-center',
+                      'h-[min(22vh,160px)] max-sm:max-h-[180px] sm:h-[min(52vh,460px)]',
+                      emphasize
+                        ? 'sm:z-10 sm:min-w-0 sm:flex-[1.65] sm:-mx-1'
+                        : 'sm:min-w-0 sm:flex-1'
+                    )}
+                  >
+                    <div
+                      className={cn(
+                        'relative h-full w-full max-w-[min(100%,22rem)] sm:max-w-none',
+                        emphasize && 'sm:scale-[1.12]'
+                      )}
+                    >
+                      <Image
+                        src={src}
+                        alt={alt}
+                        fill
+                        className="object-contain object-bottom"
+                        sizes={
+                          emphasize
+                            ? '(max-width: 640px) 100vw, 42vw'
+                            : '(max-width: 640px) 100vw, 28vw'
+                        }
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <DialogFooter className="mt-4 flex w-full flex-col items-center justify-center border-t border-border/60 pt-4 sm:mt-2 sm:flex-row sm:justify-center sm:border-t-0 sm:pt-6">
+              <a
+                href={DUO_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  'inline-flex h-12 min-w-[220px] items-center justify-center rounded-2xl px-8 text-base font-bold text-white',
+                  'bg-[#58CC02] shadow-[0_4px_0_#46A302] transition-all',
+                  'hover:bg-[#61E002] hover:shadow-[0_4px_0_#389102]',
+                  'active:translate-y-[2px] active:shadow-[0_2px_0_#389102]',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#58CC02] focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+                )}
+              >
+                Open Duolingo profile
+              </a>
+            </DialogFooter>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       {/* Speech Bubble - Independent container */}
       {showSpeechBubble && (
         <div
